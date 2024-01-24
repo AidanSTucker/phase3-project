@@ -1,3 +1,9 @@
-class User():
-    # Model fields go here
+from db.__init__ import CURSOR, CONN
+
+
+class User:
+    pass
+
+
+class Task:
     pass
