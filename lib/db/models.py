@@ -1,3 +1,3 @@
-class User(Base):
+class User():
     # Model fields go here
     pass
