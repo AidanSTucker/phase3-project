@@ -1,5 +1,5 @@
-from db.models import User
-from db.models import Task
+from db.user import User
+from db.task import Task
 
 
 def exit_program():
@@ -31,7 +31,10 @@ def delete_task(task_id):
     Task.get(Task.id == task_id).delete_instance()
 
 def get_all_tasks():
-    return Task.select()
+    tasks = Task.get_all()
+    for task in tasks:
+        print(task)
+    
 
 def find_tasks_by_department(department):
     return Task.select().where(Task.department == department)
