@@ -1,9 +1,17 @@
 from db.user import User
 from db.task import Task
+import sqlite3
+
+conn = sqlite3.connect('company.db')
+cursor = conn.cursor()
 
 
 def exit_program():
-    print("Goodbye!")
+    review = int(input("Please rate your experience with the CLI from 1 - 10:"))
+    if review < 7:
+        print("We hope your next time is a better experience, sorry!")
+    else:
+        print("We're so glad you enjoyed it, have a great day!")
     exit()
 
 def create_user(name, department):
@@ -13,7 +21,11 @@ def delete_user(user_id):
     User.get(User.id == user_id).delete_instance()
 
 def get_all_users():
-    return User.select()
+    """Return all users by just their name"""
+    cursor.execute("SELECT name FROM Users")
+    names = cursor.fetchall()
+    names = [name[0] for name in names]
+    print(names)
 
 def find_users_by_department(department):
     return User.select().where(User.department == department)
@@ -31,9 +43,13 @@ def delete_task(task_id):
     Task.get(Task.id == task_id).delete_instance()
 
 def get_all_tasks():
-    tasks = Task.get_all()
-    for task in tasks:
-        print(task)
+    """Return all tasks descriptions."""
+    cursor.execute("SELECT description FROM Task")
+    descriptions = cursor.fetchall()
+    descriptions = [description[0] for description in descriptions]
+    print(descriptions)
+
+    
     
 
 def find_tasks_by_department(department):
