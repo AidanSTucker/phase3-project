@@ -6,13 +6,21 @@ conn = sqlite3.connect('company.db')
 cursor = conn.cursor()
 
 
-def exit_program(): ##Add in logic for if input from user is NAN
-    review = int(input("Please rate your experience with the CLI from 1 - 10:"))
-    if review < 7:
-        print("We hope your next time is a better experience, sorry!")
-    else:
-        print("We're so glad you enjoyed it, have a great day!")
-    exit()
+def exit_program():
+    while True:
+        try:
+            review = int(input("Please rate your experience with the CLI from 1 - 10: "))
+            if 1 <= review <= 10:
+                if review < 7:
+                    print("We hope your next time is a better experience, sorry!")
+                else:
+                    print("We're so glad you enjoyed it, have a great day!")
+                exit()  # Exit the program after printing the message
+            else:
+                print("Error: Please enter a number between 1 and 10.")
+        except ValueError:
+            print("Error: Value entered is not a number, please try again.")
+
 
 def create_user(name, department):
     cursor.execute("INSERT INTO Users (name, department) VALUES (?, ?)", (name, department))
