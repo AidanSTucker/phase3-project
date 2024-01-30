@@ -56,12 +56,12 @@ def find_tasks_by_department(department): ##Complete
     task_by_department = cursor.fetchall()
     print(task_by_department)
 
-def find_task_by_id(task_id):##Complete
+def find_task_by_id(task_id):##Add positional argument to cli.py
     cursor.execute("SELECT * FROM Task WHERE id = ?", (task_id,))
     task_by_id = cursor.fetchone()
     print(task_by_id)
 
-def find_user_by_id(user_id):##Complete
+def find_user_by_id(user_id):##Add positional argument to cli.py
     cursor.execute("SELECT * FROM Users WHERE id = ?", (user_id,))
     user_by_id = cursor.fetchone()
     print(user_by_id)

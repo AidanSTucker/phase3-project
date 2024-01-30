@@ -38,9 +38,11 @@ def main():
         elif choice == "8":
             delete_user()
         elif choice == "9":
-            find_task_by_id()
+            id = input("Enter Tasks id: ")
+            find_task_by_id(id)
         elif choice == "10":
-            find_user_by_id()
+            id = input("Enter Users id: ")
+            find_user_by_id(id)
         else:
             print("Invalid choice")
 
