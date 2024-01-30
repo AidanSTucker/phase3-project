@@ -30,13 +30,17 @@ def main():
             department = input("Enter department name: ")
             find_users_by_department(department)
         elif choice == "5":
-            create_task()
+            new_task = input("Enter in the details of the new task: ")
+            create_task(new_task)
         elif choice == "6":
-            delete_task()
+            task_id = input("Enter the id of the task you would like to remove")
+            delete_task(task_id)
         elif choice == "7":
-            create_user()
+            new_user = input("Enter new users name: ")
+            create_user(new_user)
         elif choice == "8":
-            delete_user()
+            user = input("Enter the name of the user you would like to remove: ")
+            delete_user(user)
         elif choice == "9":
             id = input("Enter Tasks id: ")
             find_task_by_id(id)
