@@ -24,9 +24,11 @@ def main():
         elif choice == "2":
             get_all_users()
         elif choice == "3":
-            find_tasks_by_department()
+            department = input("Enter department name: ")
+            find_tasks_by_department(department)
         elif choice == "4":
-            find_users_by_department()
+            department = input("Enter department name: ")
+            find_users_by_department(department)
         elif choice == "5":
             create_task()
         elif choice == "6":
@@ -54,8 +56,8 @@ def menu():
     print("6. Delete task")
     print("7. Add new user")
     print("8. Delete user")
-    print("9. Find task by department")
-    print("10. Find user by department")
+    print("9. Find task by id")
+    print("10. Find user by id")
 
 
 if __name__ == "__main__":
