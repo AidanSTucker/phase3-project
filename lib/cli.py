@@ -36,8 +36,9 @@ def main():
             task_id = input("Enter the id of the task you would like to remove")
             delete_task(task_id)
         elif choice == "7":
-            new_user = input("Enter new users name: ")
-            create_user(new_user)
+            new_user_name = input("Enter new users name: ")
+            new_user_department = input("Enter new users department: ")
+            create_user(new_user_name, new_user_department)
         elif choice == "8":
             user = input("Enter the name of the user you would like to remove: ")
             delete_user(user)

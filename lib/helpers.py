@@ -26,8 +26,8 @@ def create_user(name, department):
     cursor.execute("INSERT INTO Users (name, department) VALUES (?, ?)", (name, department))
     conn.commit()
 
-def delete_user(user_id):
-    cursor.execute("DELETE FROM Users WHERE id = ?", (user_id,))
+def delete_user(name):
+    cursor.execute("DELETE FROM Users WHERE name = ?", (name,))
     conn.commit()
 
 def get_all_users(): ##Complete
@@ -64,12 +64,12 @@ def find_tasks_by_department(department): ##Complete
     task_by_department = cursor.fetchall()
     print(task_by_department)
 
-def find_task_by_id(task_id):##Add positional argument to cli.py
+def find_task_by_id(task_id):##Complete
     cursor.execute("SELECT * FROM Task WHERE id = ?", (task_id,))
     task_by_id = cursor.fetchone()
     print(task_by_id)
 
-def find_user_by_id(user_id):##Add positional argument to cli.py
+def find_user_by_id(user_id):##Complete
     cursor.execute("SELECT * FROM Users WHERE id = ?", (user_id,))
     user_by_id = cursor.fetchone()
     print(user_by_id)
