@@ -22,20 +22,19 @@ def exit_program():
             print("Error: Value entered is not a number, please try again.")
 
 
-def create_user(name, department):
+def create_user(name, department): ##Complete
     cursor.execute("INSERT INTO Users (name, department) VALUES (?, ?)", (name, department))
     conn.commit()
 
-def delete_user(name):
+def delete_user(name): ##Complete
     cursor.execute("DELETE FROM Users WHERE name = ?", (name,))
     conn.commit()
 
 def get_all_users(): ##Complete
     """Return all users by just their name"""
-    cursor.execute("SELECT name FROM Users")
-    names = cursor.fetchall()
-    names = [name[0] for name in names]
-    print(names)
+    cursor.execute("SELECT * FROM Users")
+    users = cursor.fetchall()
+    print(users)
 
 def find_users_by_department(department): ##Complete
     cursor.execute("SELECT * FROM Users WHERE department = ?", (department,))
@@ -53,10 +52,9 @@ def delete_task(task_id):
 
 def get_all_tasks(): ##Complete
     """Return all tasks descriptions."""
-    cursor.execute("SELECT description FROM Task")
-    descriptions = cursor.fetchall()
-    descriptions = [description[0] for description in descriptions]
-    print(descriptions)
+    cursor.execute("SELECT * FROM Task")
+    tasks = cursor.fetchall()
+    print(tasks)
 
 
 def find_tasks_by_department(department): ##Complete

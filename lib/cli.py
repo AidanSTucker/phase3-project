@@ -29,9 +29,12 @@ def main():
         elif choice == "4":
             department = input("Enter department name: ")
             find_users_by_department(department)
-        elif choice == "5":
-            new_task = input("Enter in the details of the new task: ")
-            create_task(new_task)
+        elif choice == "5": ##department, length_to_complete, description, user_id
+            new_task_department = input("Enter in the details of the new task: ")
+            new_task_length_to_complete = input("How long will this task take to complete: ")
+            new_task_description = input("Enter in the description of this task: ")
+            new_task_user_id = input("Enter in the id of the user you'd like to assign this task to: ")
+            create_task(new_task_department, new_task_length_to_complete, new_task_description, new_task_user_id)
         elif choice == "6":
             task_id = input("Enter the id of the task you would like to remove")
             delete_task(task_id)
