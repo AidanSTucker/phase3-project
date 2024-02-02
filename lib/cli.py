@@ -9,7 +9,8 @@ from helpers import (
     get_all_tasks,
     find_tasks_by_department,
     find_task_by_id,
-    find_user_by_id
+    find_user_by_id,
+    find_tasks_by_user
 )
 
 
@@ -30,13 +31,13 @@ def main():
             department = input("Enter department name: ")
             find_users_by_department(department)
         elif choice == "5": ##department, length_to_complete, description, user_id
-            new_task_department = input("Enter in the details of the new task: ")
+            new_task_department = input("Enter in the department of the new task: ")
             new_task_length_to_complete = input("How long will this task take to complete: ")
             new_task_description = input("Enter in the description of this task: ")
             new_task_user_id = input("Enter in the id of the user you'd like to assign this task to: ")
             create_task(new_task_department, new_task_length_to_complete, new_task_description, new_task_user_id)
         elif choice == "6":
-            task_id = input("Enter the id of the task you would like to remove")
+            task_id = input("Enter the id of the task you would like to remove: ")
             delete_task(task_id)
         elif choice == "7":
             new_user_name = input("Enter new users name: ")
@@ -51,6 +52,9 @@ def main():
         elif choice == "10":
             id = input("Enter Users id: ")
             find_user_by_id(id)
+        elif choice == "11":
+            user_id = input("Enter in the id of the user you're searching for: ")
+            find_tasks_by_user(user_id)
         else:
             print("Invalid choice")
 
@@ -68,6 +72,7 @@ def menu():
     print("8. Delete user")
     print("9. Find task by id")
     print("10. Find user by id")
+    print("11. Find all tasks owned by a user")
 
 
 if __name__ == "__main__":

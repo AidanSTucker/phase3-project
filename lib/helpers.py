@@ -71,3 +71,8 @@ def find_user_by_id(user_id):##Complete
     cursor.execute("SELECT * FROM Users WHERE id = ?", (user_id,))
     user_by_id = cursor.fetchone()
     print(user_by_id)
+
+def find_tasks_by_user(user_id):
+    cursor.execute("SELECT * FROM Task WHERE user_id = ?", (user_id))
+    tasks = cursor.fetchall()
+    print(tasks)

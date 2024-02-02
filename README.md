@@ -21,17 +21,31 @@ ID: 2
 Name: David Smith
 Department: Marketing
 
-As a user you have the ability to do the following actions:
-0. Exit the program
-1. View all tasks
-2. View all users
-3. View tasks by department
-4. View users by department
-5. Add new task
-6. Delete task
-7. Add new user
-8. Delete user
-9. Find task by id
-10. Find user by id
+## Features
+Task Management: Create, assign, view, and delete tasks.
+User Management: Add, view, and delete users.
+Departmental View: View tasks and users by department.
+Search Functionality: Find tasks and users by ID.
+Database Integration: Data is stored in a SQLite database (company.db).
 
-## How It Works
+## File Structure
+lib/: Contains the main application code.
+cli.py: Entry point for the CLI application. Handles user interaction and menu display.
+helpers.py: Contains helper functions for database operations and other functionalities.
+lib/db/: Contains database models and connections.
+task.py: Defines the Task model.
+user.py: Defines the User model.
+Pipfile: Specifies project dependencies.
+company.db: SQLite database file.
+README.md: Project documentation.
+
+## Classes & Database Models
+User and Task Classes: Defined in user.py and task.py respectively.
+Define class attributes such as ID, name, department, description, and estimated time to complete.
+Database Models: Corresponding to User and Task classes. Define database tables and their relationships.
+
+## Instructions For Running The CLI
+1. Fork and clone the repository
+2. install the dependencies with pipenv install, then open a shell with pipenv shell
+3. Navigate to the lib directory, then run python lib/cli.py to run the CLI
+4. Enjoy!
