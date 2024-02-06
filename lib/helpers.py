@@ -25,6 +25,7 @@ def exit_program():
 def create_user(name, department): ##Complete
     cursor.execute("INSERT INTO Users (name, department) VALUES (?, ?)", (name, department))
     conn.commit()
+    
 
 def delete_user(name): ##Complete
     cursor.execute("DELETE FROM Users WHERE name = ?", (name,))
