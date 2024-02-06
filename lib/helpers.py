@@ -34,12 +34,25 @@ def get_all_users(): ##Complete
     """Return all users by just their name"""
     cursor.execute("SELECT * FROM Users")
     users = cursor.fetchall()
-    print(users)
+    print("--------------------------")
+    print("All Users:\n")
+    for user in users:
+        print("- Name: ", user[1])
+        print("- Department: ", user[2])
+        print("- User Id: ", user[0])
+        print("")
+    print("--------------------------")
 
 def find_users_by_department(department): ##Complete
     cursor.execute("SELECT * FROM Users WHERE department = ?", (department,))
-    user_by_department = cursor.fetchall()
-    print(user_by_department)
+    users = cursor.fetchall()
+    print("--------------------------")
+    print(f"All Users in Department '{department}':\n")
+    for user in users:
+        print("- Name: ", user[1])
+        print("- User Id: ", user[0])
+        print("")
+    print("--------------------------")
 
 def create_task(department, length_to_complete, description, user_id):
     cursor.execute("INSERT INTO Task (department, length_to_complete, description, user_id) VALUES (?, ?, ?, ?)",
@@ -50,29 +63,60 @@ def delete_task(task_id):
     cursor.execute("DELETE FROM Task WHERE id = ?", (task_id,))
     conn.commit()
 
-def get_all_tasks(): ##Complete
+def get_all_tasks():
     """Return all tasks descriptions."""
     cursor.execute("SELECT * FROM Task")
     tasks = cursor.fetchall()
-    print(tasks)
+    print("--------------------------")
+    print("All Tasks:\n")
+    for task in tasks:
+        print("- Description:", task[3])
+        print("  - Length to Complete:", task[2])
+        print("  - Department:", task[1])
+        print("  - User id assigned to:", task[4])
+        print("")
+    print("--------------------------")
 
 
 def find_tasks_by_department(department): ##Complete
     cursor.execute("SELECT * FROM Task WHERE department = ?", (department,))
-    task_by_department = cursor.fetchall()
-    print(task_by_department)
+    tasks = cursor.fetchall()
+    print(f"All Tasks in Department '{department}':\n")
+    print("--------------------------")
+    for task in tasks:
+        print("- Description:", task[3])
+        print("  - Length to Complete:", task[2])
+        print("  - User ID Assigned:", task[4])
+        print("")
+    print("--------------------------")
 
 def find_task_by_id(task_id):##Complete
     cursor.execute("SELECT * FROM Task WHERE id = ?", (task_id,))
     task_by_id = cursor.fetchone()
-    print(task_by_id)
+    print("--------------------------")
+    print("- Description:", task_by_id[3])
+    print("  - Length to Complete:", task_by_id[2])
+    print("  - Department:", task_by_id[1])
+    print("  - User id assigned to:", task_by_id[4])
+    print("")
+    print("--------------------------")
 
 def find_user_by_id(user_id):##Complete
     cursor.execute("SELECT * FROM Users WHERE id = ?", (user_id,))
     user_by_id = cursor.fetchone()
-    print(user_by_id)
+    print("--------------------------")
+    print("- Name: ", user_by_id[1])
+    print("- Department: ", user_by_id[2])
+    print("")
+    print("--------------------------")
+
 
 def find_tasks_by_user(user_id):
     cursor.execute("SELECT * FROM Task WHERE user_id = ?", (user_id))
     tasks = cursor.fetchall()
-    print(tasks)
+    print("--------------------------")
+    for task in tasks:
+        print("- Description:", task[3])
+        print("  - Length to Complete:", task[2])
+        print("")
+    print("--------------------------")
