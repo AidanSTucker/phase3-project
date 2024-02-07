@@ -55,8 +55,10 @@ def main():
         elif choice == "11":
             user_id = input("Enter in the id of the user you're searching for: ")
             find_tasks_by_user(user_id)
+        elif choice.isdigit():
+            print("Invalid choice, please enter in a number shown on the menu: ")
         else:
-            print("Invalid choice")
+            print("That was not a number, please try again: ")
 
 
 def menu():

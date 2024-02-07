@@ -44,16 +44,19 @@ def get_all_users(): ##Complete
         print("")
     print("--------------------------")
 
-def find_users_by_department(department): ##Complete
+def find_users_by_department(department):
     cursor.execute("SELECT * FROM Users WHERE department = ?", (department,))
     users = cursor.fetchall()
-    print("--------------------------")
-    print(f"All Users in Department '{department}':\n")
-    for user in users:
-        print("- Name: ", user[1])
-        print("- User Id: ", user[0])
-        print("")
-    print("--------------------------")
+    if users:
+        print(f"All Users in Department '{department}':\n")
+        print("--------------------------")
+        for user in users:
+            print("- Name: ", user[1])
+            print("- User Id: ", user[0])
+            print("")
+        print("--------------------------")
+    else:
+        print(f"No users found in department '{department}'.")
 
 def create_task(department, length_to_complete, description, user_id):
     cursor.execute("INSERT INTO Task (department, length_to_complete, description, user_id) VALUES (?, ?, ?, ?)",
@@ -79,45 +82,57 @@ def get_all_tasks():
     print("--------------------------")
 
 
-def find_tasks_by_department(department): ##Complete
+def find_tasks_by_department(department):
     cursor.execute("SELECT * FROM Task WHERE department = ?", (department,))
     tasks = cursor.fetchall()
-    print(f"All Tasks in Department '{department}':\n")
-    print("--------------------------")
-    for task in tasks:
-        print("- Description:", task[3])
-        print("  - Length to Complete:", task[2])
-        print("  - User ID Assigned:", task[4])
-        print("")
-    print("--------------------------")
+    if tasks:
+        print(f"All Tasks in Department '{department}':\n")
+        print("--------------------------")
+        for task in tasks:
+            print("- Description:", task[3])
+            print("  - Length to Complete:", task[2])
+            print("  - User ID Assigned:", task[4])
+            print("")
+        print("--------------------------")
+    else:
+        print(f"No tasks found in department '{department}'.")
 
-def find_task_by_id(task_id):##Complete
+def find_task_by_id(task_id):
     cursor.execute("SELECT * FROM Task WHERE id = ?", (task_id,))
     task_by_id = cursor.fetchone()
-    print("--------------------------")
-    print("- Description:", task_by_id[3])
-    print("  - Length to Complete:", task_by_id[2])
-    print("  - Department:", task_by_id[1])
-    print("  - User id assigned to:", task_by_id[4])
-    print("")
-    print("--------------------------")
+    if task_by_id:
+        print("--------------------------")
+        print("- Description:", task_by_id[3])
+        print("  - Length to Complete:", task_by_id[2])
+        print("  - Department:", task_by_id[1])
+        print("  - User id assigned to:", task_by_id[4])
+        print("")
+        print("--------------------------")
+    else:
+        print("No task found with the specified ID.")
 
-def find_user_by_id(user_id):##Complete
+def find_user_by_id(user_id):
     cursor.execute("SELECT * FROM Users WHERE id = ?", (user_id,))
     user_by_id = cursor.fetchone()
-    print("--------------------------")
-    print("- Name: ", user_by_id[1])
-    print("- Department: ", user_by_id[2])
-    print("")
-    print("--------------------------")
+    if user_by_id:
+        print("--------------------------")
+        print("- Name: ", user_by_id[1])
+        print("- Department: ", user_by_id[2])
+        print("")
+        print("--------------------------")
+    else:
+        print("No user found with the specified ID.")
 
 
 def find_tasks_by_user(user_id):
-    cursor.execute("SELECT * FROM Task WHERE user_id = ?", (user_id))
+    cursor.execute("SELECT * FROM Task WHERE user_id = ?", (user_id,))
     tasks = cursor.fetchall()
-    print("--------------------------")
-    for task in tasks:
-        print("- Description:", task[3])
-        print("  - Length to Complete:", task[2])
-        print("")
-    print("--------------------------")
+    if tasks:
+        print("--------------------------")
+        for task in tasks:
+            print("- Description:", task[3])
+            print("  - Length to Complete:", task[2])
+            print("")
+        print("--------------------------")
+    else:
+        print("No tasks found for the specified user ID.")
