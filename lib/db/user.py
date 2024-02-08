@@ -9,6 +9,7 @@ class User:
         self.department = department
     
     # Code from simular lab for practice
+        
     #     def __repr__(self):
     #     return (
     #         f"<Employee {self.id}: {self.name}, {self.job_title}, " +
