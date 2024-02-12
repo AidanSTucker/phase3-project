@@ -24,9 +24,9 @@ def main():
             get_all_tasks()
         elif choice == "2":
             get_all_users()
-        elif choice == "3":
-            department = input("Enter department name: ")
-            find_tasks_by_department(department)
+        # elif choice == "3":
+        #     department = input("Enter department name: ")
+        #     find_tasks_by_department(department)
         elif choice == "4":
             department = input("Enter department name: ")
             find_users_by_department(department)
