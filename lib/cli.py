@@ -12,53 +12,108 @@ from helpers import (
     find_tasks_by_user
 )
 
-
 def main():
     while True:
-        menu()
+        main_menu()
         choice = input("> ")
         if choice == "0":
             exit_program()
         elif choice == "1":
+            tasks_menu()
+        elif choice == "2":
+            users_menu()
+        elif choice.isdigit():
+            print("Invalid choice, please enter a valid option number.")
+        else:
+            print("Invalid input, please enter a number corresponding to the menu option.")
+
+def main_menu():
+    print("#######################################")
+    print("#            Main Menu                #")
+    print("#######################################")
+    print("#  0. Exit the program                #")
+    print("#  1. Tasks                           #")
+    print("#  2. Users                           #")
+    print("#######################################")
+
+def tasks_menu():
+    while True:
+        print("#######################################")
+        print("#            Tasks Menu               #")
+        print("#######################################")
+        print("#  0. Go back to main menu           #")
+        print("#  1. View all tasks                 #")
+        print("#  2. Add new task                   #")
+        print("#  3. Complete task                  #")
+        print("#  4. Find task by id                #")
+        print("#  5. Find your active tasks         #")
+        print("#######################################")
+        choice = input("> ")
+        if choice == "0":
+            break
+        elif choice == "1":
             get_all_tasks()
         elif choice == "2":
-            get_all_users()
-        elif choice == "3":
-            find_users_by_department()
-        elif choice == "4": 
             create_task()
-        elif choice == "5":
+        elif choice == "3":
             delete_task()
-        elif choice == "6":
-            create_user()
-        elif choice == "7":
-            delete_user()
-        elif choice == "8":
+        elif choice == "4":
             find_task_by_id()
-        elif choice == "9":
-            find_user_by_id()
-        elif choice == "10":
-            find_tasks_by_user()
+        elif choice == "5":
+            active_tasks_menu()
         elif choice.isdigit():
-            print("Invalid choice, please enter in a number shown on the menu: ")
+            print("Invalid choice, please enter a valid option number.")
         else:
-            print("That was not a number, please try again: ")
+            print("Invalid input, please enter a number corresponding to the menu option.")
 
+def active_tasks_menu():
+    while True:
+        print("\nActive Tasks Menu:")
+        find_tasks_by_user()
+        print("1. Assign new task")
+        print("2. Mark task complete")
+        print("0. Go back to tasks menu")
+        choice = input("> ")
+        if choice == "0":
+            break
+        elif choice == "1":
+            create_task()
+        elif choice == "2":
+            delete_task()
+        elif choice.isdigit():
+            print("Invalid choice, please enter a valid option number.")
+        else:
+            print("Invalid input, please enter a number corresponding to the menu option.")
 
-def menu():
-    print("Please select an option:")
-    print("0. Exit the program")
-    print("1. View all tasks")
-    print("2. View all users")
-    print("3. View users by department")
-    print("4. Add new task")
-    print("5. Delete task")
-    print("6. Add new user")
-    print("7. Delete user")
-    print("8. Find task by id")
-    print("9. Find user by id")
-    print("10. Find your active tasks")
-
+def users_menu():
+    while True:
+        print("#######################################")
+        print("#            Users Menu               #")
+        print("#######################################")
+        print("#  0. Go back to main menu           #")
+        print("#  1. View all users                 #")
+        print("#  2. View your team members         #")
+        print("#  3. Add new user                   #")
+        print("#  4. Delete user                    #")
+        print("#  5. Find user by id                #")
+        print("#######################################")
+        choice = input("> ")
+        if choice == "0":
+            break
+        elif choice == "1":
+            get_all_users()
+        elif choice == "2":
+            find_users_by_department()
+        elif choice == "3":
+            create_user()
+        elif choice == "4":
+            delete_user()
+        elif choice == "5":
+            find_user_by_id()
+        elif choice.isdigit():
+            print("Invalid choice, please enter a valid option number.")
+        else:
+            print("Invalid input, please enter a number corresponding to the menu option.")
 
 if __name__ == "__main__":
     main()

@@ -44,15 +44,14 @@ def get_all_users():
         print("")
     print("--------------------------")
 
-def find_users_by_department(department): 
-    department = input("Enter department name: ")    ## --> Needs work
+def find_users_by_department(): 
+    department = input("Enter department name: ")
     users = User.find_by_department(department)
     if users:
-        print(f"All Users in Department '{department}':\n")
+        print(f"Your coworkers in '{department}':\n")
         print("--------------------------")
         for user in users:
-            print("- Name: ", user.name)
-            print("- User Id: ", user.id)
+            print("- Name: ", user.department)
             print("")
         print("--------------------------")
     else:
@@ -81,20 +80,6 @@ def get_all_tasks():
     tasks = Task.get_all()
     for task in tasks:
         print(task)
-
-# def find_tasks_by_department(department):
-#     tasks = Task.find_by_department(department)
-#     if tasks:
-#         print(f"All Tasks in Department '{department}':\n")
-#         print("--------------------------")
-#         for task in tasks:
-#             print("- Description:", task.description)
-#             print("  - Length to Complete:", task.length_to_complete)
-#             print("  - User ID Assigned:", task.user_id)
-#             print("")
-#         print("--------------------------")
-#     else:
-#         print(f"No tasks found in department '{department}'.")
 
 def find_task_by_id():
     task_id = input("Enter Tasks id: ")
@@ -131,6 +116,7 @@ def find_tasks_by_user():
             for task in tasks:
                 print("- Description:", task.description)
                 print("  - Length to Complete:", task.length_to_complete)
+                print("- Task number: ", task.id)
                 print("")
             print("--------------------------")
         else:

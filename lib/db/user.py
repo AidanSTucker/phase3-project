@@ -50,6 +50,12 @@ class User:
         sql = "SELECT * FROM users WHERE name = ?"
         row = cursor.execute(sql, (name,)).fetchone()
         return cls.instance_from_db(row) if row else None
+    
+    @classmethod
+    def find_by_department(cls, department):
+        sql = "SELECT * FROM users WHERE department = ?"
+        rows = cursor.execute(sql, (department,)).fetchall()
+        return [cls(*row) for row in rows] if rows else None
 
     def save(self):
         sql = "INSERT INTO users (name, department) VALUES (?, ?)"
