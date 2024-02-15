@@ -58,17 +58,24 @@ def find_users_by_department():
         print(f"No users found in department '{department}'.")
 
 def create_task():
-    description = input("Enter in the description of this task: ")
-    length_to_complete = input("How long will this task take to complete: ")
-    user_id = input("Enter in the id of the user you'd like to assign this task to: ")
-    try:
-        task = Task.create(length_to_complete, description, user_id)
-        print(f"Task created: {task}")
-    except Exception as exc:
-        print("Error creating task: ", exc)
+    description = input("Enter the description of the task: ")
+    length_to_complete = input("Enter the length to complete: ")
+    assigned_user_name = input("Enter the name of the user to assign the task to: ")
+
+    assigned_user = User.find_by_name(assigned_user_name)
+    if assigned_user:
+        try:
+            task = Task.create(description, length_to_complete, assigned_user.id)
+            print(f"Task created: {task}")
+        except Exception as exc:
+            print("Error creating task: ", exc)
+    else:
+        print(f"No user found with the name '{assigned_user_name}'. Task not created.")
 
 
-def delete_task(task_id):
+
+
+def delete_task():
     task_id = input("Enter the id of the task you would like to remove: ")
     if task := Task.find_by_id(task_id):
         task.delete()

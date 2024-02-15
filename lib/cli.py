@@ -70,9 +70,9 @@ def manager_portal():
             elif choice == "5":
                 find_user_by_id()
             elif choice == "6":
-                create_task()
-            elif choice == "7":
                 delete_task()
+            elif choice == "7":
+                create_task()
             elif choice == "8":
                 find_tasks_by_user()
             elif choice.isdigit():
