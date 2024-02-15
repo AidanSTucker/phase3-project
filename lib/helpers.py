@@ -16,7 +16,7 @@ def exit_program():
         except ValueError:
             print("Error: Value entered is not a number, please try again.")
 
-def create_user(name, department):
+def create_user():
     name = input("Enter new users name: ")
     department = input("Enter new users department: ")
     try:
@@ -25,7 +25,7 @@ def create_user(name, department):
     except Exception as exc:
         print("Error creating user: ", exc)
 
-def delete_user(name):
+def delete_user():
     name = input("Enter the name of the user you would like to remove: ")
     if user := User.find_by_name(name):
         user.delete()
@@ -87,7 +87,6 @@ def find_task_by_id():
         print("--------------------------")
         print("- Description:", task.description)
         print("  - Length to Complete:", task.length_to_complete)
-        print("  - Department:", task.department)
         print("  - User id assigned to:", task.user_id)
         print("")
         print("--------------------------")
