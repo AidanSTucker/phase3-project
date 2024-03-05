@@ -31,7 +31,7 @@ def main():
 
 def main_menu():
     print("#######################################")
-    print("#            Main Menu                #")
+    print("|            Main Menu                |")
     print("#######################################")
     print("#  0. Exit the program                #")
     print("#  1. Tasks                           #")
@@ -44,7 +44,7 @@ def manager_portal():
     if manager_code == '123':
         while True:
             print("#######################################")
-            print("#          Manager Portal             #")
+            print("|     -     Manager Portal      -     |")
             print("#######################################")
             print("#  0. Go back to main menu           #")
             print("#  1. View all employees             #")
@@ -85,7 +85,7 @@ def manager_portal():
 def tasks_menu():
     while True:
         print("#######################################")
-        print("#            Tasks Menu               #")
+        print("|            Tasks Menu               |")
         print("#######################################")
         print("#  0. Go back to main menu           #")
         print("#  1. View all tasks                 #")
@@ -128,7 +128,7 @@ def active_tasks_menu():
 def users_menu():
     while True:
         print("#######################################")
-        print("#            Employees Menu           #")
+        print("|            Employees Menu           |")
         print("#######################################")
         print("#  0. Go back to main menu           #")
         print("#  1. View all employees             #")

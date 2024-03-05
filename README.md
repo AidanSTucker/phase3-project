@@ -1,10 +1,9 @@
 # Phase 3 Project - Task Workflow Program
 
 ## What It Does
-My project is a CLI program that functions as a "app" to create, delete, and manage users and tasks. It's main purposes is to create, assign, and complete tasks within a company. As a user you can see which tasks are assigned to you, along with it's unique id, description, estimated time to complete, foreign key (points to user that it's assigned to), and the department the task belongs to. if a user has a task that belongs to them, it would like something like this:
+My project is a CLI program that functions as a "app" to create, delete, and manage users and tasks. It's main purposes is to create, assign, and complete tasks within a company. As a user you can see which tasks are assigned to you, along with it's unique id, description, estimated time to complete, and the foreign key (points to user that it's assigned to). if a user has a task that belongs to them, it would like something like this:
 
 ID: 1
-Department: Marketing
 Description: Create high funnel non-brand campaign for new client
 Time To Complete: Estimated 1 hour and 15 minutes
 user_id = 2
@@ -18,8 +17,7 @@ Department: Marketing
 ## Features
 Task Management: Create, assign, view, and delete tasks.
 User Management: Add, view, and delete users.
-Departmental View: View tasks and users by department.
-Search Functionality: Find tasks and users by ID.
+Search Functionality: Find tasks and users by name / title.
 Database Integration: Data is stored in a SQLite database (company.db).
 
 ## File Structure
