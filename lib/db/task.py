@@ -1,4 +1,4 @@
-from db.__init__ import CURSOR, CONN
+from db.user import User
 import sqlite3
 
 conn = sqlite3.connect('company.db')
@@ -18,8 +18,8 @@ class Task:
         return f"<Task {self.id}: {self.description}, User ID: {self.user_id}>"
 
     @classmethod
-    def create(cls, length_to_complete, description, user_id):
-        task = cls(length_to_complete, description, user_id)
+    def create(cls, description, length_to_complete, user_id):
+        task = cls(description, length_to_complete, user_id)
         task.save()
         return task
 
@@ -43,15 +43,21 @@ class Task:
         return [cls.instance_from_db(row) for row in rows]
 
     @classmethod
-    def find_by_id(cls, id):
-        sql = "SELECT * FROM Task WHERE id = ?"
-        row = cursor.execute(sql, (id,)).fetchone()
+    def find_by_description(cls, description):
+        sql = "SELECT * FROM Task WHERE description = ?"
+        row = cursor.execute(sql, (description,)).fetchone()
         return cls.instance_from_db(row) if row else None
 
     @classmethod
     def find_by_user_id(cls, user_id):
         sql = "SELECT * FROM Task WHERE user_id = ?"
         rows = cursor.execute(sql, (user_id,)).fetchall()
+        return [cls.instance_from_db(row) for row in rows]
+    
+    @classmethod
+    def find_by_id(cls, id):
+        sql = "SELECT * FROM Task WHERE id = ?"
+        rows = cursor.execute(sql, (id,)).fetchall()
         return [cls.instance_from_db(row) for row in rows]
 
     def save(self):
@@ -67,8 +73,9 @@ class Task:
         conn.commit()
 
     def delete(self):
-        sql = "DELETE FROM Task WHERE id = ?"
-        cursor.execute(sql, (self.id,))
+        sql = "DELETE FROM Task WHERE description = ?"
+        cursor.execute(sql, (self.description,))
         conn.commit()
-        del type(self).all[self.id]
-        self.id = None
+
+    def user(self):
+        return User.find_by_id(self.user_id)

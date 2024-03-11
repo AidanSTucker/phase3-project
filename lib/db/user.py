@@ -1,5 +1,4 @@
 from db.__init__ import CURSOR, CONN
-from db.task import Task
 import sqlite3
 conn = sqlite3.connect('company.db')
 cursor = conn.cursor()
@@ -75,3 +74,8 @@ class User:
         conn.commit()
         del type(self).all[self.id]
         self.id = None
+
+    def task(self):
+        from db.task import Task
+        return Task.find_by_id(self.id)
+

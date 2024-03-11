@@ -40,7 +40,6 @@ def get_all_users():
     for user in users:
         print("- Name: ", user.name)
         print("- Department: ", user.department)
-        print("- User Id: ", user.id)
         print("")
     print("--------------------------")
 
@@ -65,7 +64,7 @@ def create_task():
     assigned_user = User.find_by_name(assigned_user_name)
     if assigned_user:
         try:
-            task = Task.create(description, length_to_complete, assigned_user.id)
+            task = Task.create(length_to_complete, description, assigned_user.id)
             print(f"Task created: {task}")
         except Exception as exc:
             print("Error creating task: ", exc)
@@ -73,43 +72,33 @@ def create_task():
         print(f"No user found with the name '{assigned_user_name}'. Task not created.")
 
 
-
-
 def delete_task():
-    task_id = input("Enter the id of the task you would like to remove: ")
-    if task := Task.find_by_id(task_id):
+    description = input("Enter the description of the task you would like to remove: ")
+    task = Task.find_by_description(description)
+    if task:
         task.delete()
-        print(f"Task {task_id} deleted")
+        print(f"Task '{description}' deleted")
     else:
-        print(f"Task {task_id} not found")
+        print(f"Task '{description}' not found")
 
 def get_all_tasks():
     tasks = Task.get_all()
     for task in tasks:
         print(task)
 
-def find_task_by_id():
-    task_id = input("Enter Tasks id: ")
-    if task := Task.find_by_id(task_id):
+def find_task_by_description():
+    task_description = input("Enter Task Description: ")
+    task = Task.find_by_description(task_description)
+    
+    if task:
+        user_name = task.user().name  # Retrieve the name of the user associated with the task
         print("--------------------------")
         print("- Description:", task.description)
         print("  - Length to Complete:", task.length_to_complete)
-        print("  - User id assigned to:", task.user_id)
-        print("")
+        print("  - User assigned to:", user_name)  # Print the name of the user
         print("--------------------------")
     else:
-        print("No task found with the specified ID.")
-
-def find_user_by_id():
-    user_id = input("Enter Users id: ")
-    if user := User.find_by_id(user_id):
-        print("--------------------------")
-        print("- Name: ", user.name)
-        print("- Department: ", user.department)
-        print("")
-        print("--------------------------")
-    else:
-        print("No user found with the specified ID.")
+        print("No task found with that description.")
 
 def find_tasks_by_user():
     user_name = input("Enter in your name: ")
@@ -122,7 +111,6 @@ def find_tasks_by_user():
             for task in tasks:
                 print("- Description:", task.description)
                 print("  - Length to Complete:", task.length_to_complete)
-                print("- Task number: ", task.id)
                 print("")
             print("--------------------------")
         else:

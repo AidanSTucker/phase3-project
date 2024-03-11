@@ -7,8 +7,7 @@ from helpers import (
     create_task,
     delete_task,
     get_all_tasks,
-    find_task_by_id,
-    find_user_by_id,
+    find_task_by_description,
     find_tasks_by_user
 )
 
@@ -51,10 +50,9 @@ def manager_portal():
             print("#  2. View employees by department   #")
             print("#  3. Add new employees              #")
             print("#  4. Delete employees               #")
-            print("#  5. Find employees by id           #")
-            print("#  6. Delete task                    #")
-            print("#  7. Create task                    #")
-            print("#  8. View tasks by employees        #")
+            print("#  5. Delete task                    #")
+            print("#  6. Create task                    #")
+            print("#  7. View tasks by employees        #")
             print("#######################################")
             choice = input("> ")
             if choice == "0":
@@ -68,12 +66,10 @@ def manager_portal():
             elif choice == "4":
                 delete_user()
             elif choice == "5":
-                find_user_by_id()
-            elif choice == "6":
                 delete_task()
-            elif choice == "7":
+            elif choice == "6":
                 create_task()
-            elif choice == "8":
+            elif choice == "7":
                 find_tasks_by_user()
             elif choice.isdigit():
                 print("Invalid choice, please enter a valid option number.")
@@ -98,7 +94,7 @@ def tasks_menu():
         elif choice == "1":
             get_all_tasks()
         elif choice == "2":
-            find_task_by_id()
+            find_task_by_description()
         elif choice == "3":
             active_tasks_menu()
         elif choice.isdigit():
@@ -133,7 +129,6 @@ def users_menu():
         print("#  0. Go back to main menu           #")
         print("#  1. View all employees             #")
         print("#  2. View your team members         #")
-        print("#  3. Find user by id                #")
         print("#######################################")
         choice = input("> ")
         if choice == "0":
@@ -142,8 +137,6 @@ def users_menu():
             get_all_users()
         elif choice == "2":
             find_users_by_department()
-        elif choice == "3":
-            find_user_by_id()
         elif choice.isdigit():
             print("Invalid choice, please enter a valid option number.")
         else:
