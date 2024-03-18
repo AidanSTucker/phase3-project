@@ -50,13 +50,13 @@ To initialize the database tables required for the project, follow these steps:
 3. Run the Seed File: Execute the seed.py script to create the database tables. You can do this by running the following command:
 
 ```
-python seed.py
+$ python seed.py
 ```
 
 This will execute the Python script and create the necessary tables in the company.db database file.
 
 4. Verify Table Creation: Once the script has finished running, you can verify that the tables have been created by checking the company.db file using an SQLite database browser or by querying the tables using SQLite command-line tools.
 
-5. Ready to Use: With the tables created, you can now proceed to run the main application or interact with the database as needed. Navigate to the lib directory, then run python lib/cli.py to run the CLI
+5. Ready to Use: With the tables created, you can now proceed to run the main application or interact with the database as needed. Navigate to the lib directory, then run python lib/cli.py to run the CLI. (Note: you'll need to create a few employees and different tasks before you can utilize most of the menu functions, since there is no existing data in the tables!)
 
 Enjoy.
