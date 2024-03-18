@@ -50,7 +50,7 @@ To initialize the database tables required for the project, follow these steps:
 3. Run the Seed File: Execute the seed.py script to create the database tables. You can do this by running the following command:
 
 ```
-$ python seed.py
+$ python lib/db/seed.py
 ```
 
 This will execute the Python script and create the necessary tables in the company.db database file.
