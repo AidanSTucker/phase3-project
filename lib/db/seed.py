@@ -5,7 +5,7 @@ conn = sqlite3.connect('company.db')
 cursor = conn.cursor()
 
 CREATE_TABLE_USERS = """
-CREATE TABLE IF NOT EXISTS Users (
+CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     department TEXT NOT NULL
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS Users (
 """
 
 CREATE_TABLE_TASKS = """
-CREATE TABLE IF NOT EXISTS Tasks (
+CREATE TABLE IF NOT EXISTS Task (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     description TEXT NOT NULL,
     length_to_complete TEXT NOT NULL,
