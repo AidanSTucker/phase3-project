@@ -1,21 +1,29 @@
-# from faker import Faker
-# from sqlalchemy.orm import Session
-# from lib.db.task import Task  # Replace with your actual model
 
-# fake = Faker()
+import sqlite3
 
-# def create_fake_data(db: Session):
-#     for _ in range(10):  # Change the number based on how much data you want
-#         fake_name = fake.name()
-#         fake_email = fake.email()
-        
-#         # Create an instance of your model with the fake data
-#         db_item = User(name=fake_name, email=fake_email)
-        
-#         # Add it to the session and commit
-#         db.add(db_item)
-#         db.commit()
+conn = sqlite3.connect('company.db')
+cursor = conn.cursor()
 
-# Usage
-# Assuming you have your SQLAlchemy session ready (db_session), you can call the function
-# create_fake_data(db_session)
+CREATE_TABLE_USERS = """
+CREATE TABLE IF NOT EXISTS Users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    department TEXT NOT NULL
+);
+"""
+
+CREATE_TABLE_TASKS = """
+CREATE TABLE IF NOT EXISTS Tasks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    description TEXT NOT NULL,
+    length_to_complete TEXT NOT NULL,
+    user_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES Users(id)
+);
+"""
+
+cursor.execute(CREATE_TABLE_USERS)
+cursor.execute(CREATE_TABLE_TASKS)
+
+conn.commit()
+conn.close()

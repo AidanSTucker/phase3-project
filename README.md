@@ -37,7 +37,26 @@ Define class attributes such as ID, name, department, description, and estimated
 Database Models: Corresponding to User and Task classes. Define database tables and their relationships.
 
 ## Instructions For Running The CLI
-1. Fork and clone the repository
-2. install the dependencies with pipenv install, then open a shell with pipenv shell
-3. Navigate to the lib directory, then run python lib/cli.py to run the CLI
-4. Enjoy!
+
+As always start by forking and cloning this repository, then opening it in your terminal window / navigating to its directory. Install the dependencies with pipenv install, then open a shell with pipenv shell.
+
+The first real step involves seeding your database, since initially there will be none. Seeding the database involves re-creating the initial "users" and "task" tables, from then you can create all of your employees and begin assigning / completing tasks. 
+To initialize the database tables required for the project, follow these steps:
+
+1. Navigate to the Project Directory: Open a terminal or command prompt and navigate to the directory where the project files are located.
+
+2. Ensure SQLite is Installed: Ensure that SQLite is installed on your system. If not, you can download and install it from the SQLite website.
+
+3. Run the Seed File: Execute the seed.py script to create the database tables. You can do this by running the following command:
+
+```
+python seed.py
+```
+
+This will execute the Python script and create the necessary tables in the company.db database file.
+
+4. Verify Table Creation: Once the script has finished running, you can verify that the tables have been created by checking the company.db file using an SQLite database browser or by querying the tables using SQLite command-line tools.
+
+5. Ready to Use: With the tables created, you can now proceed to run the main application or interact with the database as needed. Navigate to the lib directory, then run python lib/cli.py to run the CLI
+
+Enjoy.
