@@ -87,21 +87,21 @@ def get_all_tasks():
         print(task)
 
 def find_task_by_description():
-    task_description = input("Enter Task Description: ")
+    task_description = input("Enter Task Title: ")
     task = Task.find_by_description(task_description)
     
     if task:
         user_name = task.user().name  # Retrieve the name of the user associated with the task
         print("--------------------------")
-        print("- Description:", task.description)
+        print("- Title:", task.description)
         print("  - Length to Complete:", task.length_to_complete)
         print("  - User assigned to:", user_name)  # Print the name of the user
         print("--------------------------")
     else:
-        print("No task found with that description.")
+        print("No task found with that title.")
 
 def find_tasks_by_user():
-    user_name = input("Enter in your name: ")
+    user_name = input("Enter name: ")
     user = User.find_by_name(user_name)
     if user:
         user_id = user.id
@@ -114,6 +114,6 @@ def find_tasks_by_user():
                 print("")
             print("--------------------------")
         else:
-            print("No tasks found for the specified user.")
+            print("No tasks found associated to that name.")
     else:
-        print("User not found.")
+        print("Name not found.")

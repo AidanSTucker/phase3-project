@@ -15,7 +15,7 @@ class Task:
         self.user_id = user_id
 
     def __repr__(self):
-        return f"<Task {self.description}, Length to complete: {self.length_to_complete}>"
+        return f"| Task {self.description}, Length to complete: {self.length_to_complete} |"
 
     @classmethod
     def create(cls, description, length_to_complete, user_id):

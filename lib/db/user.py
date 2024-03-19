@@ -12,7 +12,7 @@ class User:
         self.department = department
 
     def __repr__(self):
-        return f"<User: {self.name}, Department: {self.department}>"
+        return f"| User: {self.name}, Department: {self.department} |"
 
     @classmethod
     def create(cls, name, department):
