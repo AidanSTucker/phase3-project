@@ -14,6 +14,19 @@ ID: 2
 Name: David Smith
 Department: Marketing
 
+This project itself is an accurate representation of what a workflow program might look like in a fully remote company. throughout the company, there are things called "projects", which consist of different pre-made tasks for each department. Everytime you onboard a new client, or have to do something new for them, you would create a new project and send those premade tasks out to your department members. 
+
+The tasks you find in specific projects will be identical for all members. For example, if you onboard a new client, here is the tasks each department / member should expect to receive:
+
+HR: close out / complete project (when done)
+Sales: submit signed proposal from client into docusign
+Marketing: created new ad account OR update monthly offer
+Management: create new project and send out tasks
+
+Knowing that if I am working in the Marketing department I should only expect to see 2-3 different types of tasks, I know if i look up my tasks with the title "create ad account", I will see all the new clients who still need to have their account made. Non-managerial users are also capable of assigning themself a task, which could be useful in the case that you had to go back and fix something you did wrong in a previous task. That would serve as a "reminder task" to go back and fix that / edit it. 
+
+Only Managers are able to create / assign & delete new tasks to other users, as well as hiring and firing new users. If you imagine you are an employee using this CLI, you would be using it to simply view your active tasks that you need to work on, and mark them as complete when done so others can know your progress. The extra functionality to view your teammates by department, view all tasks, etc, are all extraneous and just additional features that all apps offer that most people hardly ever use. The CLI could easily be improved to have tasks auto sent out when a new project is created, add a message to the managers inbox when a task is completed, and send alerts to complete an overdue task. 
+
 ## Features
 Task Management: Create, assign, view, and delete tasks.
 User Management: Add, view, and delete users.
