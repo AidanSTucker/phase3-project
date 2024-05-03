@@ -11,6 +11,18 @@ class User:
         self.name = name
         self.department = department
 
+
+    @property
+    def name(self):
+        return self._name
+    
+    @name.setter
+    def name(self, value):
+        if len(value) < 2:
+            raise ValueError("Name must be at least 2 character long.")
+        self._name = value
+
+
     def __repr__(self):
         return f"| User: {self.name}, Department: {self.department} |"
 
@@ -78,4 +90,5 @@ class User:
     def task(self):
         from db.task import Task
         return Task.find_by_id(self.id)
-
+## task(s) not singular -> user has many tasks 
+## The project code should follow OOP best practices.
