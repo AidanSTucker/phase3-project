@@ -11,7 +11,7 @@ class User:
         self.name = name
         self.department = department
 
-
+## make a property method for each attribute, in both model classes -> to do: department
     @property
     def name(self):
         return self._name
@@ -87,8 +87,8 @@ class User:
         del type(self).all[self.id]
         self.id = None
 
-    def task(self):
+    def tasks(self):
         from db.task import Task
-        return Task.find_by_id(self.id)
+        return Task.find_by_user_id(self.id)
 ## task(s) not singular -> user has many tasks 
 ## The project code should follow OOP best practices.

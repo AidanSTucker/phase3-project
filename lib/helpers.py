@@ -104,18 +104,18 @@ def find_tasks_by_user():
     user_name = input("Enter name: ")
     user = User.find_by_name(user_name)
     if user:
-        user_id = user.id
-        tasks = Task.find_by_user_id(user_id)
+        tasks = user.tasks()
         if tasks:
             print("--------------------------")
             for task in tasks:
                 print("- Description:", task.description)
                 print("  - Length to Complete:", task.length_to_complete)
+                print("  - User assigned to:", user_name)
                 print("")
             print("--------------------------")
         else:
-            print("No tasks found associated to that name.")
+            print("No tasks found associated with that user.")
     else:
         print("Name not found.")
-## call User.tasks 
-## line 107 can be commented our / implemented into one line on 108
+## call User.tasks -> all set!
+## line 107 can be commented our / implemented into one line on 108 -> removed!
