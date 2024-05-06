@@ -11,7 +11,6 @@ class User:
         self.name = name
         self.department = department
 
-## make a property method for each attribute, in both model classes -> to do: department
     @property
     def name(self):
         return self._name
@@ -21,6 +20,17 @@ class User:
         if len(value) < 2:
             raise ValueError("Name must be at least 2 character long.")
         self._name = value
+
+    @property
+    def department(self):
+        return self._department
+    
+    @department.setter
+    def department(self, value):
+        if len(value) < 2:
+            raise ValueError("Department must be at least 2 characters long.")
+        self._department = value
+
 
 
     def __repr__(self):

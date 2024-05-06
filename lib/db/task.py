@@ -14,6 +14,27 @@ class Task:
         self.description = description
         self.user_id = user_id
 
+## make property methods for the following attributes in this model class: length_to_complete & description
+    @property
+    def description(self):
+        return self._description
+    
+    @description.setter
+    def description(self, value):
+        if len(value) < 10:
+            raise ValueError("description must be at least 10 characters long.")
+        self._description = value
+
+    @property
+    def length_to_complete(self):
+        return self._length_to_complete
+    
+    @length_to_complete.setter
+    def length_to_complete(self, value):
+        if len(value) < 4:
+            raise ValueError("Please include the time metric for the length to complete!")
+        self._length_to_complete = value
+        
     def __repr__(self):
         return f"| Task {self.description}, Length to complete: {self.length_to_complete} |"
 
