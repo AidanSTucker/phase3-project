@@ -14,7 +14,7 @@ class Task:
         self.description = description
         self.user_id = user_id
 
-## make property methods for the following attributes in this model class: length_to_complete & description
+
     @property
     def description(self):
         return self._description

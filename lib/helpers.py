@@ -117,5 +117,3 @@ def find_tasks_by_user():
             print("No tasks found associated with that user.")
     else:
         print("Name not found.")
-## call User.tasks -> all set!
-## line 107 can be commented our / implemented into one line on 108 -> removed!
