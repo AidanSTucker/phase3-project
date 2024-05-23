@@ -37,6 +37,26 @@ class Task:
         
     def __repr__(self):
         return f"| Task {self.description}, Length to complete: {self.length_to_complete} |"
+    
+
+
+    
+    def find_by_length(description, value):
+        length = len(description)
+        value = input("Enter in length of description you want to see: ")
+
+        if length <= value:
+            print(description)
+
+        else:
+            print("Nothing found within that length!")
+
+find_by_length()
+
+
+
+
+
 
     @classmethod
     def create(cls, description, length_to_complete, user_id):
