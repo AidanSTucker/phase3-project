@@ -8,7 +8,8 @@ from helpers import (
     delete_task,
     get_all_tasks,
     find_task_by_description, 
-    find_tasks_by_user
+    find_tasks_by_user,
+    find_tasks_by_length
 )
 
 def main():
@@ -87,6 +88,7 @@ def tasks_menu():
         print("#  1. View all tasks                 #")
         print("#  2. Find a specific task           #")
         print("#  3. View my tasks                  #")
+        print("#  4. Find tasks by length           #")
         print("#######################################")
         choice = input("> ")
         if choice == "0":
@@ -97,6 +99,8 @@ def tasks_menu():
             find_task_by_description()
         elif choice == "3":
             active_tasks_menu()
+        elif choice == "4":
+            find_tasks_by_length()
         elif choice.isdigit():
             print("Invalid choice, please enter a valid option number.")
         else:

@@ -117,3 +117,27 @@ def find_tasks_by_user():
             print("No tasks found associated with that user.")
     else:
         print("Name not found.")
+
+        
+
+def find_tasks_by_length():
+    try:
+        max_length = int(input("Enter the maximum description length: "))
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+        return
+    
+    tasks = Task.find_by_length(max_length)
+    
+    if tasks:
+        print("--------------------------")
+        for task in tasks:
+            user = User.find_by_id(task.user_id)
+            user_name = user.name if user else "Unknown"
+            print("- Description:", task.description)
+            print("  - Length to Complete:", task.length_to_complete)
+            print("  - User assigned to:", user_name)
+            print("")
+        print("--------------------------")
+    else:
+        print("No tasks found with a description length less than or equal to", max_length)

@@ -3,7 +3,7 @@ import sqlite3
 
 conn = sqlite3.connect('company.db')
 cursor = conn.cursor()
-
+## lists, list comprehension, psuedocoding, debugging tools, how to call a class method, finish up find_by_length function, add to menuing
 
 class Task:
     all = {}
@@ -38,26 +38,14 @@ class Task:
     def __repr__(self):
         return f"| Task {self.description}, Length to complete: {self.length_to_complete} |"
     
-
+    ## New method as discussed with Mr. Parish!
+    @classmethod
+    def find_by_length(cls, max_length):
+        sql = "SELECT * FROM Task WHERE LENGTH(description) <= ?"
+        rows = cursor.execute(sql, (max_length,)).fetchall()
+        return [cls.instance_from_db(row) for row in rows] if rows else []
 
     
-    def find_by_length(description, value):
-        length = len(description)
-        value = input("Enter in length of description you want to see: ")
-
-        if length <= value:
-            print(description)
-
-        else:
-            print("Nothing found within that length!")
-
-find_by_length()
-
-
-
-
-
-
     @classmethod
     def create(cls, description, length_to_complete, user_id):
         task = cls(description, length_to_complete, user_id)
